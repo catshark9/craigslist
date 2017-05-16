@@ -13,14 +13,7 @@ listings3 <- listings3[grepl('64', listings3$desc), ]
 listings <- rbind(listings1, listings2, listings3)              
 
 
-
-
-
-
-
-
-
-
+# if database connection open, else save to excel 
 if(database){
   
   library('RPostgreSQL')
@@ -40,7 +33,7 @@ if(database){
   dbWriteTable(con,'listings_new', listings_new, row.names=FALSE)
   
   dbWriteTable(con, 'listings', value=listings_new,append=TRUE, row.names=FALSE)
-  
+
 
 } else {
   listings_prev <- read_csv("C:/Users/Jon Kelley/Desktop/CL/listings.csv")
@@ -48,10 +41,11 @@ if(database){
   listings_all <- rbind(listings, listings_prev)
   listings_all <- listings_all[!duplicated(listings_all$url), ]
   
-  write.csv(listings_all, file='listings.csv',  row.names=FALSE)
-  
   listings_new <- listings[!(listings$url%in%listings_prev$url), ]
 }
+
+  write.csv(listings_all, file='listings.csv',  row.names=FALSE)
+
 
 
 
