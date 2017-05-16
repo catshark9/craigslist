@@ -39,15 +39,8 @@ if(nrow(listings_new)>0){
                              tfoot="&dagger; penis")
   
   email <- mime(
-    To = "jonkelley2@icloud.com",
-    From = "jkelley@wciconsulting.com",
-    Subject = paste0("Recent CL postings"))
-  email <- html_body(email, paste(listingsTable))
-  send_message(email)
-  
-  email <- mime(
-    To = "michaellbowles@gmail.com",
-    From = "jkelley@wciconsulting.com",
+    To = "email@icloud.com",
+    From = "email@gmail.com",
     Subject = paste0("Recent CL postings"))
   email <- html_body(email, paste(listingsTable))
   send_message(email)
