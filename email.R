@@ -36,7 +36,7 @@ if(nrow(listings_new)>0){
                              # cgroup = c("Cgroup 1", "Cgroup 2&dagger;"),
                              # n.cgroup = c(2,2), 
                              caption="Listings on Craigslist", 
-                             tfoot="&dagger; penis")
+                             tfoot="&dagger; "")
   
   email <- mime(
     To = "email@icloud.com",
